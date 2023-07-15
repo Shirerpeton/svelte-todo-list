@@ -4,6 +4,7 @@
     import FolderComponent from './FolderComponent.svelte'
 
     export let folders: Folder[];
+    export let error: string | null;
     let addingFolder: boolean = false;
 </script>
 
@@ -39,6 +40,7 @@
         color: silver;
         width: 75%;
         padding: 0.5rem;
+        font-size: 16px;
     }
 </style>
 
@@ -52,9 +54,12 @@
     {/if}
     {#if addingFolder}
         <form method="post" action="?/createFolder" class="add-folder-form" use:enhance>
-            <input name="name" type="text" autocomplete="off" placeholder="Folder name"/>
+            <input name="name" type="text" autocomplete="off" placeholder="Folder name" required />
             <button type="submit">+</button>
             <button on:click={() => addingFolder = false}>×</button>
         </form>
+    {/if}
+    {#if error}
+        <p style="color: red;">{error}</p>
     {/if}
 </div>
