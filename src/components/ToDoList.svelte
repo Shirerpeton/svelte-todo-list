@@ -1,13 +1,9 @@
 <script lang="ts">
-    import ToDo from '../components/ToDo.svelte'
-
-    interface ToDo {
-        id: number;
-        text: string;
-        done: boolean;
-    }
+    import type { ToDo } from '$lib/types'
+    import ToDoComponent from './ToDoComponent.svelte'
 
     export let todos: ToDo[] = [];
+
 </script>
 
 <style>
@@ -19,8 +15,8 @@
 </style>
 
 <div class="todos">
-    <h2>ToDo List:</h2>
+    <h2>ToDo:</h2>
     {#each todos as todo}
-        <ToDo {...todo} />  
+        <ToDoComponent {...todo} />  
     {/each}
 </div>
