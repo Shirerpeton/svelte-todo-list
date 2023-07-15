@@ -10,13 +10,15 @@
         display: flex;
         flex-direction: row;
         margin: 2px;
-        padding: 1rem;
+        padding: 0.5rem;
         border: 1px silver solid;
         border-radius: 5px;
         align-items: center;
     }
     .folder-name {
         margin-left: 1rem;
+        font-size: 16px;
+        font-weight: 700;
     }
     .delete-folder-form {
         margin-left: auto;
