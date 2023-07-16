@@ -2,8 +2,8 @@
     import { enhance } from '$app/forms';
     import { selectedFolderId } from '$lib/stores';
 
-    export let id: number = 0;
-    export let name: string = "";
+    export let id: string = '';
+    export let name: string = '';
 </script>
 
 <style>
@@ -15,6 +15,8 @@
         border: 1px silver solid;
         border-radius: 5px;
         align-items: center;
+        background-color: transparent;
+        color: silver;
     }
     .folder-name {
         margin-left: 1rem;
@@ -25,7 +27,7 @@
         margin-left: auto;
     }
     .delete-folder-button {
-        background-color: #303030;
+        background-color: transparent;
         border: none;
         color: silver;
         cursor: pointer;
@@ -37,10 +39,10 @@
     }
 </style>
 
-<div class="folder" class:selected={id === $selectedFolderId} on:click={() => $selectedFolderId = id}>
+<button class="folder" class:selected={id === $selectedFolderId} on:click={() => $selectedFolderId = id} >
     <span class="folder-name">{name}</span>
     <form method="post" action="?/deleteFolder" class="delete-folder-form" use:enhance>
         <input type="hidden" name="id" value={id} />
-        <button class="delete-folder-button">×</button>
+        <button class="delete-folder-button" on:click|stopPropagation>×</button>
     </form>
-</div>
+</button>

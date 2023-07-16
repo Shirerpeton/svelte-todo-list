@@ -1,14 +1,19 @@
 export interface Folder {
-    id: number;
+    id: string;
     name: string;
+    toDos: ToDo[];
 }
 
 export interface ToDo {
-    id: number;
+    id: string;
     text: string;
     done: boolean;
 }
 
 export interface FormData {
     folderError: string
+}
+
+export interface Data {
+    folders: Folder[];
 }

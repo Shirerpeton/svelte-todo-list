@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const selectedFolderId = writable(0);
+export const selectedFolderId = writable('');
