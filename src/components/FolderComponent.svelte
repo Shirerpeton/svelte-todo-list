@@ -1,5 +1,6 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
+    import { selectedFolderId } from '$lib/stores';
 
     export let id: number = 0;
     export let name: string = "";
@@ -30,9 +31,13 @@
         cursor: pointer;
         font-size: 20px;
     }
+    .folder.selected {
+        background-color: #404040;
+        color: silver;
+    }
 </style>
 
-<div class="folder">
+<div class="folder" class:selected={id === $selectedFolderId} on:click={() => $selectedFolderId = id}>
     <span class="folder-name">{name}</span>
     <form method="post" action="?/deleteFolder" class="delete-folder-form" use:enhance>
         <input type="hidden" name="id" value={id} />

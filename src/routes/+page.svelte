@@ -5,7 +5,6 @@
 
     export let data;
     export let form;
-    export let currentFolderId: number = 0;
 </script>
 
 <style>
