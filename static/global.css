@@ -3,3 +3,37 @@ body {
     color: silver;
     font-family: Arial;
 }
+
+.list {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+}
+button {
+    margin: 2px;
+    background-color: #303030;
+    border: 1px silver solid;
+    border-radius: 5px;
+    color: silver;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0.3rem;
+}
+.add-button {
+    margin-top: 1rem;
+}
+.add-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+}
+input {
+    background-color: #303030;
+    border: 1px silver solid;
+    border-radius: 5px;
+    color: silver;
+    width: 75%;
+    padding: 0.5rem;
+    font-size: 16px;
+}

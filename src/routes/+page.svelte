@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Data } from '$lib/types';
+    import type { Data, FormData } from '$lib/types';
     import { selectedFolderId } from '$lib/stores';
     import FolderList from '../components/FolderList.svelte'
     import ToDoList from '../components/ToDoList.svelte'
@@ -7,7 +7,8 @@
     export let data: Data = {
         folders: []
     };
-    export let form;
+    export let form: FormData;
+    $: console.log(data);
 </script>
 
 <style>
@@ -20,6 +21,6 @@
 <main>
     <FolderList folders={data.folders} error={form?.folderError ?? null}/>
     {#if $selectedFolderId !== null}
-        <ToDoList todos={data.folders.filter(folder => folder.id === $selectedFolderId)[0]?.toDos ?? []}/>
+        <ToDoList todos={data.folders.find(folder => folder.id === $selectedFolderId)?.todos ?? []} error={form?.toDoError ?? null}/>
     {/if}
 </main>

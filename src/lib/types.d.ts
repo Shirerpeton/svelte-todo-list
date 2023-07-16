@@ -1,17 +1,18 @@
-export interface Folder {
+export interface FolderType {
     id: string;
     name: string;
-    toDos: ToDo[];
+    todos: ToDo[];
 }
 
-export interface ToDo {
+export interface ToDoType {
     id: string;
     text: string;
     done: boolean;
 }
 
 export interface FormData {
-    folderError: string
+    folderError: string,
+    toDoError: string
 }
 
 export interface Data {
